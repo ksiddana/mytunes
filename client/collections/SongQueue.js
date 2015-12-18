@@ -7,5 +7,13 @@ var SongQueue = Songs.extend({
     this.on('change', function (e) {
       console.log('this in SongQueue after a change', this)
     })
+  },
+
+  playFirst: function() {
+
+  },
+
+  add: function() {
   }
+
 });
