@@ -11,9 +11,13 @@ var SongQueueView = Backbone.View.extend({
                                                      // is this a bug?
   // initialize: function() {
   // },
-  this.$el.children().detach();
-  this.$el.html('<th>SongQueue</th>').append();
-
+    this.$el.children().detach();
+    
+    this.$el.html('<th>SongQueue</th>').append(
+      this.collection.map(function(queuedSong){
+        return new SongQueueEntryView({model: queuedSong}).render();
+      })
+    );
   }
 
 });
