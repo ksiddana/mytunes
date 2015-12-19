@@ -9,6 +9,9 @@ var SongQueueView = Backbone.View.extend({
       this.render();
       console.log("Inside the SongQueue Collection on Change", this);
     }, this);*/
+    this.on('remove', this.render(), this);
+    this.on('add', this.render(), this);
+    
   },
 
   render: function() {

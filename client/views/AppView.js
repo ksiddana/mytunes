@@ -8,6 +8,7 @@ var AppView = Backbone.View.extend({
     this.SongQueueView = new SongQueueView({collection: this.model.get('songQueue')});
     // console.log("Inside AppView: ", arguments);
     // change:currentSong - this is Backbone's way of allowing you to filter events to
+    
     // ONLY receive change events for the specific property, 'currentSong'
 
 
@@ -22,12 +23,12 @@ var AppView = Backbone.View.extend({
       this.model.get("songQueue").songEnded();
     }, this);
 
-    //listens for enqueue events on library
+/*    //listens for enqueue events on library
     this.libraryView.on('enqueue', function(song){
-      console.log('appModel hears enque')
+      // console.log('appModel hears enque')
       this.get('songQueue').push(song);
-      console.log(this.get('songQueue'))
-    }, this);
+      // console.log(this.get('songQueue'))
+    }, this);*/
 
   },
 
