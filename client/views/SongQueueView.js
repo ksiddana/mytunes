@@ -4,11 +4,11 @@ var SongQueueView = Backbone.View.extend({
   tagName: "table", //Don't know why we are adding a TagName.
 
   initialize: function() {
-    console.log("SongQueue View - Init() ", this.collection);
-    this.collection.on('change', function() {
+    // console.log("SongQueue View - Init() ", this.collection);
+    /*this.collection.on('change', function() {
       this.render();
       console.log("Inside the SongQueue Collection on Change", this);
-    }, this);
+    }, this);*/
   },
 
   render: function() {
