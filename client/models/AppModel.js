@@ -19,11 +19,10 @@ var AppModel = Backbone.Model.extend({
       this.set('currentSong', song);
     }, this);
 
-    //listens for enqueue events on library
+    //listens for enqueue events on library from the songModel.
     params.library.on('enqueue', function(song){
-      // console.log('appModel hears enque')
-      this.get('songQueue').push(song);
-      // console.log(this.get('songQueue'))
+      // get the queue from app's attr. and invoke add passing the song which we recieved with the event as context.
+      this.get('songQueue').add(song);
     }, this);
 
 

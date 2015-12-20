@@ -5,45 +5,47 @@ var SongQueue = Songs.extend({
 
   initialize: function(){
 
-    this.on('change', function (e) {
+    this.on('change', function () {
       console.log('this in SongQueue after a change', this)
-      // this.playfirst();
     });
+
     this.on('dequeue', function(){
       this.remove()
     });
+
     // listen for ended event
-    this.on('ended', function (e){
-      console.log('song ended in songQ initialize')
-      //remove the first song
-      console.log('this before unshift',this)
-      this.shift();
-      console.log('this after unshift',this)
-      // play the new first song
-      if (this.length !== 0){
-        this.playFirst();
-      };
-    })
+    this.on('ended', function (){
+      // invoke song ended.
+      this.songEnded();
+    });
+
+    // listen for a song to be added.  add event is triggered when an element is added/pushed to the collection.
     this.on('add', function () {
+      // on every add play the song if its the only one.
       if (this.length === 1) {
         this.playFirst();
       }
-    })
+    });
   },
+  
+  // plays the first song in the queue.
   playFirst: function() {
-
-    // plays the first song in the queue.
-    // console.log("this in songQueue playfirst")
     // play the first song
     this.at(0).play();
-    // remove the first song
-    // this.shift();
   },
-// this function gets invoked from appView when a song ends.
+  
+  // this function gets invoked from appView when a song ends.
   songEnded: function () {
-    // console.log('songQ heard song ended', this);
-    this.shift();
-    this.playFirst()
+    // console.log('songQ heard song ended', this.length);
+
+      // console.log('this before unshift',this, this.length)
+      this.shift();
+      // console.log('this after unshift',this, this.length)
+
+    if (this.length !== 0){
+      // console.log('trying to play')
+      this.playFirst();
+    };
   }
 
   // add: function() {

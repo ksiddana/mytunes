@@ -4,23 +4,13 @@ var LibraryEntryView = Backbone.View.extend({
   tagName: 'tr',
 
   template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
+ 
 
-/*  initalize: function() {
-    this.model.on('enqueue', function() {
-      // this.trigger.play();
-    })
-  }*/
-
+  // song is clicked, fires the enqueue event in the song model.
   events: {
     'click': function() {
-      // this.model.play();
-      //we need to enqueue the song to the song que collection.
-      // console.log('library entry view hears a click')
       this.model.enqueue();
-      console.log("Library Entry View: ", this);
-      this.model.play();
-      this.render();
-
+      // this.render(); // dont know if we need this
     }
   },
 

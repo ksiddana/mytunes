@@ -4,14 +4,8 @@ var SongQueueView = Backbone.View.extend({
   tagName: "table", //Don't know why we are adding a TagName.
 
   initialize: function() {
-    // console.log("SongQueue View - Init() ", this.collection);
-    /*this.collection.on('change', function() {
-      this.render();
-      console.log("Inside the SongQueue Collection on Change", this);
-    }, this);*/
-    this.render();
+    // listen for add and remove events from the song Q collection.
     this.collection.on('remove', this.render, this);
-    // this.on('add', this.render, this);
     this.collection.on('add', this.render, this);
   },
 

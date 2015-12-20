@@ -8,10 +8,12 @@ var PlayerView = Backbone.View.extend({
   initialize: function() {
     // console.log(this)
     this.$el.on('ended', function () {
-      // console.log('ended in init playerView')
-      // console.log(this);
+      console.log('ended in init playerView')
+      console.log(this);
+      this.model.set('playCount', this.model.get('playCount') + 1);
+      console.log("PlayCOUNT: ", this.model.get('playCount'));
       this.trigger('songEnded', this)
-    }.bind(this))
+    }.bind(this));
   },
 
   setSong: function(song){
