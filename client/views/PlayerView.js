@@ -6,14 +6,15 @@ var PlayerView = Backbone.View.extend({
   el: '<audio controls autoplay />',
 
   initialize: function() {
-    // console.log(this)
+    
     this.$el.on('ended', function () {
-      console.log('ended in init playerView')
-      console.log(this);
+
+      // Comment the line below, if you don't want the Song to be incremented twice.
       this.model.set('playCount', this.model.get('playCount') + 1);
-      console.log("PlayCOUNT: ", this.model.get('playCount'));
+      // console.log("PlayCOUNT: ", this.model.get('playCount'));
       this.trigger('songEnded', this)
     }.bind(this));
+
   },
 
   setSong: function(song){

@@ -48,6 +48,8 @@ var SongQueue = Songs.extend({
     };
   }
 
+  
+
   // add: function() {
   // }
 

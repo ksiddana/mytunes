@@ -5,6 +5,15 @@ var LibraryView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+
+  },
+
+  ended: function() {
+    console.log("Library Entry View heard that the song Ended");
+  },
+
+  increasePlayCount: function() {
+     console.log("Should increase PlayCount here using Collection feature");
   },
 
   render: function(){
@@ -18,5 +27,4 @@ var LibraryView = Backbone.View.extend({
       })
     );
   }
-
 });

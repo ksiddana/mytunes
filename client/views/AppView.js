@@ -23,6 +23,10 @@ var AppView = Backbone.View.extend({
       console.log('playcount should inc here', this)
     }, this);
 
+    this.libraryView.on('ended', function() {
+      console.log(this.collection);
+    });
+
     
   },
 
